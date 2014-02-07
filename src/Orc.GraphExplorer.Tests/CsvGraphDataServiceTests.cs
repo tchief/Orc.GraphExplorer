@@ -39,8 +39,8 @@ namespace Orc.GraphExplorer.Tests
         [TestMethod]
         public void CsvGraphDataService_Constructor_Test()
         {
-            //var withDefaultCtor = new CsvGraphDataService();
-            //Assert.AreEqual(withDefaultCtor.Config, CsvGraphDataServiceConfig.Current);
+            var withDefaultCtor = new CsvGraphDataService();
+            Assert.AreEqual(withDefaultCtor.Config, CsvGraphDataServiceConfig.Current);
 
             var config = new CsvGraphDataServiceConfig()
             {
