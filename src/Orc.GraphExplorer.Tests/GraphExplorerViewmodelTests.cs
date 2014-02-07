@@ -42,12 +42,12 @@ namespace Orc.GraphExplorer.Tests
             var source = new DataVertex(100) { Title = "Test" };
             VertexControl sourceVC = null;
 
-            var cvoSource = new CreateVertexOperation(graph, source, double.MinValue, double.MinValue, (sv, svc) =>
+            var cvoSource = new CreateVertexOperation(graph, source, callback:(sv, svc) =>
             {
                 createSourceCalled = true;
                 sourceVC = svc;
             },
-            (v) =>
+            undoCallback:(v) =>
             {
                  undoCreateSourceCalled = true;
             });
