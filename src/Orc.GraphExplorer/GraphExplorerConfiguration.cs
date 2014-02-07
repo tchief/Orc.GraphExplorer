@@ -1,9 +1,10 @@
-﻿using Orc.GraphExplorer.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
+using Orc.GraphExplorer.Model;
 
 namespace Orc.GraphExplorer
 {
@@ -14,7 +15,17 @@ namespace Orc.GraphExplorer
             get
             {
                 Configuration exeConfiguration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
+                
+                if (exeConfiguration.FilePath.EndsWith("mstest.exe.config", StringComparison.OrdinalIgnoreCase))
+                {
+                    var map = new ExeConfigurationFileMap();
+                    map.ExeConfigFilename = Directory.GetFiles(
+                        Environment.CurrentDirectory,
+                        "*.dll.config",
+                        SearchOption.TopDirectoryOnly).FirstOrDefault(); 
+                    exeConfiguration = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+                }
+                
                 return exeConfiguration.GetSection("graphExplorer") as GraphExplorerSection;
             }
         }

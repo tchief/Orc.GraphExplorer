@@ -36,9 +36,12 @@
     <Reference Include="GraphX">
       <HintPath>..\..\lib\GraphX\GraphX.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Microsoft.Practices.Prism.dll</HintPath>
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
@@ -80,11 +83,7 @@
 	<Compile Include="OperationTests.cs" />
 	<Compile Include="GraphExplorerConfigurationTests.cs" />
 	<Compile Include="GraphExplorerViewmodelTests.cs" />
-	<!--
 	<Compile Include="CsvGraphDataServiceTests.cs" />
-    
-    
-	-->
     <Compile Include="Mock\MockObserver.cs" />
     <Compile Include="Mock\MockOperation.cs" />
   </ItemGroup>
