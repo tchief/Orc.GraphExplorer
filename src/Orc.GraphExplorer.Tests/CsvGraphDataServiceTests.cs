@@ -9,6 +9,8 @@ using System.Text;
 namespace Orc.GraphExplorer.Tests
 {
     [TestClass]
+    [DeploymentItem(@"src\Orc.GraphExplorer.Demo\Data\Properties.csv", "Data")]
+    [DeploymentItem(@"src\Orc.GraphExplorer.Demo\Data\Relationships.csv", "Data")]
     public class CsvGraphDataServiceTests
     {
         [AssemblyInitialize]
