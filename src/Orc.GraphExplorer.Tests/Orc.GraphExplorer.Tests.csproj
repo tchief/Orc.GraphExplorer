@@ -83,11 +83,7 @@
 	<Compile Include="OperationTests.cs" />
 	<Compile Include="GraphExplorerConfigurationTests.cs" />
 	<Compile Include="GraphExplorerViewmodelTests.cs" />
-	<!--
 	<Compile Include="CsvGraphDataServiceTests.cs" />
-    
-    
-	-->
     <Compile Include="Mock\MockObserver.cs" />
     <Compile Include="Mock\MockOperation.cs" />
   </ItemGroup>
