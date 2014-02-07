@@ -1,9 +1,10 @@
-﻿using Orc.GraphExplorer.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
+using Orc.GraphExplorer.Model;
 
 namespace Orc.GraphExplorer
 {
@@ -22,7 +23,7 @@ namespace Orc.GraphExplorer
                         Environment.CurrentDirectory,
                         "*.dll.config",
                         SearchOption.TopDirectoryOnly).FirstOrDefault(); 
-                    var exeConfiguration = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+                    exeConfiguration = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
                 }
                 
                 return exeConfiguration.GetSection("graphExplorer") as GraphExplorerSection;
