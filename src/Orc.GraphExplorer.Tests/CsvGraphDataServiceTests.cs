@@ -25,11 +25,22 @@ namespace Orc.GraphExplorer.Tests
 
         }
 
-        //[TestMethod]
+        public CsvGraphDataService CreateCsvGraphDataService()
+        {
+            var config = new CsvGraphDataServiceConfig()
+            {
+                VertexesFilePath = @"Data\Properties.csv",
+                EdgesFilePath = @"Data\Relationships.csv"
+            };
+
+            return  new CsvGraphDataService(config);
+        }
+        
+        [TestMethod]
         public void CsvGraphDataService_Constructor_Test()
         {
-            var withDefaultCtor = new CsvGraphDataService();
-            Assert.AreEqual(withDefaultCtor.Config, CsvGraphDataServiceConfig.Current);
+            //var withDefaultCtor = new CsvGraphDataService();
+            //Assert.AreEqual(withDefaultCtor.Config, CsvGraphDataServiceConfig.Current);
 
             var config = new CsvGraphDataServiceConfig()
             {
@@ -41,10 +52,10 @@ namespace Orc.GraphExplorer.Tests
             Assert.AreEqual(withConfigPassedInCtor.Config, config);
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void GetVertexes_From_File_Test()
         {
-            var service = new CsvGraphDataService();
+            var service = this.CreateCsvGraphDataService();
             bool callSuccess = false;
             bool callFail = false;
 
@@ -97,10 +108,10 @@ namespace Orc.GraphExplorer.Tests
             Assert.AreEqual(vertex1.Properties.First(p => p.Key == "First Name").Value, "ABC11");
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void GetEdges_From_File_Test()
         {
-            var service = new CsvGraphDataService();
+            var service = this.CreateCsvGraphDataService();
             bool callSuccess = false;
             bool callFail = false;
             List<DataEdge> resultData = null;
@@ -119,10 +130,10 @@ namespace Orc.GraphExplorer.Tests
             Assert.IsNotNull(resultData);
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void UpdateVertexes_Test()
         {
-            var service = new CsvGraphDataService();
+            var service = this.CreateCsvGraphDataService();
             bool callSuccess = false;
             Exception er;
             ObservableCollection<DataVertex> list = new ObservableCollection<DataVertex>();
@@ -157,7 +168,7 @@ namespace Orc.GraphExplorer.Tests
         }
 
 
-        //[TestMethod]
+        [TestMethod]
         public void UpdateVertex_Test()
         {
 
@@ -177,7 +188,7 @@ namespace Orc.GraphExplorer.Tests
             //12,Last Name2,XYZ12
             //12,Age2,34
 
-            var service = new CsvGraphDataService();
+            var service = this.CreateCsvGraphDataService();
             bool callSuccess = false;
             bool callFail = false;
             IEnumerable<DataVertex> resultList = null;
@@ -203,10 +214,10 @@ namespace Orc.GraphExplorer.Tests
             });
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void UpdateEdges_Test()
         {
-            var service = new CsvGraphDataService();
+            var service = this.CreateCsvGraphDataService();
             bool callSuccess = false;
             Exception er;
             List<DataEdge> list = new List<DataEdge>();
