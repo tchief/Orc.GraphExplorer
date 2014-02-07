@@ -36,6 +36,9 @@
     <Reference Include="GraphX">
       <HintPath>..\..\lib\GraphX\GraphX.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation>
+      <HintPath>..\packages\CommonServicLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
