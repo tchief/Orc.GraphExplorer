@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Orc.GraphExplorer.Tests
 {
-    ////[TestClass]
+    [TestClass]
     public class GraphExplorerConfigurationTests
     {
         //[TestMethod]
