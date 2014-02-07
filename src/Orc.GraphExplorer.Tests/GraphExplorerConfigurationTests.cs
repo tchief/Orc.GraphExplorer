@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Orc.GraphExplorer.Tests
 {
-    [TestClass]
+    ////[TestClass]
     public class GraphExplorerConfigurationTests
     {
-        [TestMethod]
+        //[TestMethod]
         public void Load_GraphExplorerConfiguration_Test()
         {
             var section = GraphExplorerSection.Current;
@@ -27,7 +27,7 @@ namespace Orc.GraphExplorer.Tests
             Assert.AreEqual(setting.NavigateToNewTab, true);
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void Load_CsvGraphDataServiceConfig_Test()
         {
             var config = CsvGraphDataServiceConfig.Current;

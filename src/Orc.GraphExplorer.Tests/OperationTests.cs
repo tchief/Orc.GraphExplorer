@@ -87,7 +87,7 @@ namespace Orc.GraphExplorer.Tests
                 ec = e;
             });
 
-            var cvoSource = new CreateVertexOperation(graph, source, (sv, svc) =>
+            var cvoSource = new CreateVertexOperation(graph, source, double.MinValue, double.MinValue, (sv, svc) =>
             {
                 createSourceCalled = true;
                 sourceVC = svc;
@@ -97,7 +97,7 @@ namespace Orc.GraphExplorer.Tests
                 undoCreateSourceCalled = true;
             });
 
-            var cvoTarget = new CreateVertexOperation(graph, target, (sv, svc) =>
+            var cvoTarget = new CreateVertexOperation(graph, target, double.MinValue, double.MinValue, (sv, svc) =>
             {
                 createTargetCalled = true;
                 targetVC = svc;

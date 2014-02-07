@@ -11,13 +11,14 @@
     <AssemblyName>Orc.GraphExplorer.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>../../output/Debug/Orc.GraphExplorer.Tests</OutputPath>
+    <OutputPath>..\..\output\Debug\NET40\Orc.GraphExplorer.Tests\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,14 +27,14 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>../../output/Release/Orc.GraphExplorer.Tests</OutputPath>
+    <OutputPath>..\..\output\Release\NET40\Orc.GraphExplorer.Tests\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GraphX">
-      <HintPath>..\..\lib\GraphX.dll</HintPath>
+      <HintPath>..\..\lib\GraphX\GraphX.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -43,10 +44,10 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="QuickGraph">
-      <HintPath>..\..\lib\QuickGraph.dll</HintPath>
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.dll</HintPath>
     </Reference>
     <Reference Include="QuickGraph.Serialization">
-      <HintPath>..\..\lib\QuickGraph.Serialization.dll</HintPath>
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -59,7 +60,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="YAXLib">
-      <HintPath>..\..\lib\YAXLib.dll</HintPath>
+      <HintPath>..\packages\YAXLib.2.12\lib\YAXLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -72,13 +73,20 @@
     <Compile Include="..\Orc.GraphExplorer.Demo\Mock\MockGraphDataService.cs">
       <Link>Mock\MockGraphDataService.cs</Link>
     </Compile>
-    <Compile Include="CsvGraphDataServiceTests.cs" />
+    <Compile Include="..\SolutionAssemblyInfo.cs">
+      <Link>SolutionAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="DataVertexTest.cs" />
-    <Compile Include="GraphExplorerConfigurationTests.cs" />
-    <Compile Include="GraphExplorerViewmodelTests.cs" />
+	<Compile Include="OperationTests.cs" />
+	<Compile Include="GraphExplorerConfigurationTests.cs" />
+	<Compile Include="GraphExplorerViewmodelTests.cs" />
+	<!--
+	<Compile Include="CsvGraphDataServiceTests.cs" />
+    
+    
+	-->
     <Compile Include="Mock\MockObserver.cs" />
     <Compile Include="Mock\MockOperation.cs" />
-    <Compile Include="OperationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Orc.GraphExplorer.Demo\App.config">
@@ -92,8 +100,10 @@
       <Link>Data\Relationships.csv</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Orc.GraphExplorer</id>
+    <version>@build.number@</version>
+    <title>Orc.GraphExplorer</title>
+    <authors>Orcomp</authors>
+    <owners>Orcomp</owners>
+	<description>
+	  Graph Explorer is an open source .NET control which will help you navigate and explore Directed Acyclic Graphs (DAG).
+	</description>
+	<summary></summary>
+	<tags>graph wpf orcomp</tags>
+	<language>en-US</language>
+	<projectUrl>https://github.com/Orcomp/Orc.GraphExplorer</projectUrl>
+	@dependencies@
+  </metadata>
+</package>

@@ -124,8 +124,10 @@ lib/
 [Oo]utput/
 packages/
 
+# NuGet.key
+[Nn]u[Gg]et.key
+ 
 # FAKE build
 tools/FAKE
 build-log.xml
 build-log.txt
-Nuget.key
